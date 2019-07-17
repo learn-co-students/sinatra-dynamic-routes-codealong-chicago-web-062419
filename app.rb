@@ -2,6 +2,12 @@ require_relative 'config/environment'
 
 class App < Sinatra::Base
 
+  all_the_medicines = [
+  #<Medicine:0x007fb739b1af88 @id=1, @name="penicillin" @group="antibiotic">,
+  #<Medicine:0x007fb739b1af88 @id=2, @name="advil" @group="anti-inflammatory">,
+  #<Medicine:0x007fb739b1af88 @id=3, @name="benadryl" @group="anti-histamine">
+]
+
   # This is a sample static route.
   get '/hello' do
     "Hello World!"
@@ -15,4 +21,15 @@ class App < Sinatra::Base
 
   # Code your final two routes here:
 
+  get "/goodbye/:name" do
+    @user_name = params[:name]
+    "Goodbye, #{@user_name}."
+  end
+
+  get "/multiply/:num1/:num2" do
+    @multiply = params[:num1].to_i * params[:num2].to_i
+    "#{@multiply}"
+  end
+
 end
+
